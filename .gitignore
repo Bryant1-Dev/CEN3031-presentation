@@ -1,0 +1,17 @@
+# Config file
+backend/config/config.js
+
+#Ignore files related to API keys
+.env
+
+#Ignore SASSS config files
+.sass-cache
+
+# Node stuff
+node_modules
+.npm
+.node_repl_history
+.lock-wscript
+logs
+*.log
+npm-debug.log*

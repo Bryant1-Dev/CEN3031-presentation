@@ -1,0 +1,25 @@
+.dashboard-view-container {
+  background-color: rgb(147, 205, 247);
+  color: #e3f2fd;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* rgba(227, 242, 253, 0.3) #93cdf7 */
+.dashboard-container {
+  background-color: rgba(147, 205, 247, 0.5);
+  border-radius: 15;
+  border: 1px solid #f7bd93;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.dashboard-json-info {
+  color: #e3f2fd;
+  font-weight: lighter;
+  padding: 0px 3px;
+}

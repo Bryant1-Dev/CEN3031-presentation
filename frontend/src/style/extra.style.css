@@ -1,0 +1,13 @@
+.extra-container {
+  text-align: center;
+  color: white;
+  background-color: #b5c1ca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.extra-command {
+  font-weight: lighter;
+}

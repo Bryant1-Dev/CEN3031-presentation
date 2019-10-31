@@ -1,0 +1,18 @@
+.home-container {
+  text-align: center;
+  color: white;
+  background-color: #b5c1ca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.home-button {
+  outline: none;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+}

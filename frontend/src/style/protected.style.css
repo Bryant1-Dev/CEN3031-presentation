@@ -1,0 +1,9 @@
+.protected-container {
+  text-align: center;
+  color: white;
+  background-color: rgb(147, 205, 247);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
