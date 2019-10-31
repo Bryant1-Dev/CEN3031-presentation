@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const uri = require("./keys").MongoURI;
+const uri = require("./config").MongoURI;
 
 module.exports = {
   start: function() {
