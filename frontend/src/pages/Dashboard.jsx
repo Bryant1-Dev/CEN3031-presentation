@@ -12,7 +12,7 @@ const Dashboard = ({ loggedIn, user }) => {
             <br />
             {Object.keys(user).map((k, index) => (
               <p
-                key="index"
+                key={index}
                 className="dashboard-json-info"
               >{`${k}: ${user[k]}`}</p>
             ))}

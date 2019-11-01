@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcryptjs"); //TODO: Removed this now takes place within the model
+//const bcrypt = require("bcryptjs"); //TODO: Removed this now takes place within the model
 const passport = require("passport");
 const db = require("../config/database");
 
@@ -8,28 +8,17 @@ const router = express.Router();
 //User model
 const User = require("../models/user.model");
 
-//Middleware
-function checkAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) return next();
-
-  res.redirect("/login");
-}
-
-function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) return res.redirect("/");
-
-  next();
-}
-
-//Login Page
-router.get("/login", (req, res) => {
-  console.log("This is req.user: " + req.user);
-  console.log("This is req.session: " + req.session);
-});
-
 //Verify - this is for the frontend
 router.get("/verify", (req, res) => {
-  console.log("This is res.locals.user from /verify" + res.locals.user);
+  console.log(
+    "This is res.locals.session from /verify" +
+      JSON.stringify(res.locals.session)
+  );
+  console.log("This is req.session from /verify" + JSON.stringify(req.session));
+  console.log(
+    "This is res.locals.user from /verify" + JSON.stringify(res.locals.user)
+  );
+  console.log("This is req.user from /verify" + JSON.stringify(req.user));
   if (req.isAuthenticated()) {
     const clientUser = {
       id: req.user._id,
@@ -153,9 +142,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 //Logout handle
 router.post("/logout", (req, res) => {
-  //req.logout();
-  //res.clearCookie("sid");
-
   req.session.destroy(err => {
     if (err) {
       return res.send({

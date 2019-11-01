@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import axios from "axios";
-
+import "../style/register.style.css";
 class Register extends Component {
   constructor(props) {
     //Necessary for class components
@@ -17,7 +17,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      registerError: "",
+      registerErrors: [],
       isLoading: ""
     };
   }
@@ -58,7 +58,7 @@ class Register extends Component {
           email: "",
           password: "",
           password2: "",
-          registerError: "",
+          registerErrors: [],
           isLoading: false
         });
 
@@ -70,8 +70,9 @@ class Register extends Component {
           password: "",
           password2: "",
           isLoading: false,
-          registerError: response.data.message
+          registerErrors: response.data.message
         });
+        console.log(JSON.stringify(this.state.registerErrors));
       }
       //window.location = "/users/login";
       //<Redirect to={{ pathname: "/users/login" }} /> -TODO: recommended implmentation method
@@ -99,7 +100,13 @@ class Register extends Component {
     return (
       <div>
         <h3>Register User</h3>
-        {this.state.registerError ? <p>{this.state.registerError}</p> : null}
+        {this.state.registerErrors.length > 0
+          ? this.state.registerErrors.map((errMsg, index) => (
+              <p className="register-error-message" key={index}>
+                {errMsg.msg}
+              </p>
+            ))
+          : null}
         <form onSubmit={e => this.onSubmit(e)}>
           <div className="form-group">
             <label>Username: </label>

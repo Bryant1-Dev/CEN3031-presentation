@@ -15,14 +15,13 @@ const app = express();
 app.set("trust proxy", true);
 
 //Body Parser
-//app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: false })); //express 4 way of doing things
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //alows us to deal with form data and json data
 
 //app.use(cors());
 
 const PORT = process.env.PORT || 3001;
-//console.log(mongooseSetup.connection);
+
 //Express session middleware
 app.use(
   session({
@@ -34,7 +33,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: false,
-      maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+      maxAge: 1000 * 60 * 60 * 24 * 1 // 1 day
     }
   })
 );

@@ -7,10 +7,13 @@ router.get("/", (req, res) => {
 });
 //Dashboard
 router.get("/dashboard", (req, res) => {
-  /* res.render("dashboard", {
-    user: req.user
-  }); */
-  res.send(req.user);
+  if (req.isAuthenticated()) return res.send(req.user);
+  else {
+    res.send({
+      success: false,
+      message: "You are not authenticated."
+    });
+  }
 });
 
 module.exports = router;
